@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-LABEL maintainer="uberbrady, hinchk"
+LABEL maintainer="Florian Fröhlich"
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
@@ -18,10 +18,13 @@ php7.1-zip \
 php7.1-bcmath \
 patch \
 curl \
+nano \
 vim \
 git \
 mysql-client \
 supervisor \
+&& apt-get upgrade -y \
+&& apt-get dist-upgrade -y \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
